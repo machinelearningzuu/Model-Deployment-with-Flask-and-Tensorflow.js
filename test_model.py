@@ -7,11 +7,11 @@ from sklearn.utils import shuffle
 
 current_dir = os.getcwd()
 saved_weights = os.path.join(current_dir,saved_weights)
+classifier = IrisClassifier()
 
 if __name__ == "__main__":
     Xtrain, Xtest, Ytrain, Ytest = get_data()
     Xtest, Ytest = shuffle(Xtest, Ytest)
-    classifier = IrisClassifier()
     if os.path.exists(saved_weights):
         print("Loading existing model !!!")
         classifier.load_model()

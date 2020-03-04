@@ -72,10 +72,11 @@ class IrisClassifier(object):
             y_pred = np.argmax(self.model.predict(np.array([flowers]))[0])
             loss, accuracy = self.model.evaluate(flowers.reshape(1,tensor_shape),np.array([labels]))
             P = list(label_encode.keys())[list(label_encode.values()).index(y_pred)]
-            print("Prediction : {}".format(P))
+            # print("Prediction : {}".format(P))
         else:
             y_pred = np.argmax(self.model.predict(flowers), axis = 1)
             loss, accuracy = self.model.evaluate(flowers,labels)   
-            print("Prediction : {}".format(y_pred))
-        print("loss : {}".format(loss))
-        print("accuracy : {}".format(accuracy))        
+        #     print("Prediction : {}".format(y_pred))
+        # print("loss : {}".format(loss))
+        # print("accuracy : {}".format(accuracy))        
+        return P,loss,accuracy
